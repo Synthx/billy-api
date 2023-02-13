@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: billy_postgres_container
+    image: postgres:14.0-alpine
+    environment:
+      POSTGRES_USER: 'billy'
+      POSTGRES_PASSWORD: 'docker'
+      POSTGRES_DB: 'billy_api'
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:

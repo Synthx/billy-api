@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: billy-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/billy_api
+    username: billy
+    password: docker
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+api:
+  firebase:
+    project-id: billy-local-2cf05
+    credentials: classpath:credentials/local.json
